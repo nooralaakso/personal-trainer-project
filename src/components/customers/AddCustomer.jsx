@@ -43,7 +43,10 @@ export default function AddCustomer(props){
 
     return (
         <div>
-            <Button variant='outlined' onClick={handleClickOpen}> {/* Button to open the dialog */}
+            <Button 
+            variant='outlined' 
+            onClick={handleClickOpen}
+            >                           {/* Button to open the dialog */}
                 Add Customer
             </Button>
             <Dialog open={open} onClose={handleClose}> {/* Dialog to add a new customer */}

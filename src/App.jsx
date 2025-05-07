@@ -15,7 +15,7 @@ function App() {
       <Container>
         <CssBaseline />
         {/* Top navigation bar */}
-        <AppBar position="static">
+        <AppBar position="static" sx={{ backgroundColor: '#8884d8'}}>
           <Toolbar>
             {/* Navigation links styled horizontally */}
             <nav style={{ display: "flex", gap: '1rem' }}>

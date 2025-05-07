@@ -166,7 +166,6 @@ export function CustomerList({ }) {
                 <Typography variant='h6'>Customer List ({customers.length})</Typography>
 
                 <AddCustomer addCustomer={addNewCustomer} />
-                <Button variant="outlined" onClick={exportToCsv}>Export CSV</Button>
 
                 <Box sx={{ flexGrow: 1, width: "100%", height: 400 }}>
                     <AgGridReact rowData={customers} columnDefs={columnDefs} defaultColDef={{ filter: true, floatingFilter: true, }} />
@@ -202,6 +201,8 @@ export function CustomerList({ }) {
                 )}
 
             </Stack>
+
+            <Button variant="outlined" onClick={exportToCsv}>Export CSV</Button>
         </>
     );
 
