@@ -11,12 +11,12 @@ import DeleteTrainingDialog from './DeleteTrainingDialog';
 ModuleRegistry.registerModules([AllCommunityModule]);
 
 
-export function TrainingList({ }) {
+export function TrainingList() {
     // State variables for storing training data and dialog states
     const [trainings, setTrainings] = useState([]); // Holds the list of trainings
     const [deleteDialogOpen, setDeleteDialogOpen] = useState(false); // Controls visibility of delete confirmation dialog
     const [trainingToDelete, setTrainingToDelete] = useState(null); // Holds the training to delete
-    const [columnDefs, setColumnDefs] = useState([
+    const columnDefs = [
         { field: 'customerName', headerName: 'Customer Name' }, 
         {
             field: 'date',  //Formatting date to be more readable
@@ -39,7 +39,7 @@ export function TrainingList({ }) {
                 </Button>
             )
         }
-    ]);
+    ];
 
 
     // Fetch trainings from the API when the component mounts
@@ -47,15 +47,6 @@ export function TrainingList({ }) {
         getTrainings().then(trainingArray => setTrainings(trainingArray));
     }, []);
 
-    // Function to save a new training
-    const saveTraining = (newTraining) => {
-        const updatedTraining = {
-            ...newTraining,
-            customerName: newTraining.customer,
-            duration: Number(newTraining.duration)
-        };
-        setTrainings([...trainings, updatedTraining]);
-    };
 
 
     // Function to handle delete button click

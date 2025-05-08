@@ -1,4 +1,4 @@
-import { describe, test, expect, beforeEach } from 'vitest';
+import { describe, test, expect, beforeEach, afterEach } from 'vitest';
 import { getCustomers, addCustomer, updateCustomer } from './customerApi';
  
 describe("Customer REST API", () => {

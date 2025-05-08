@@ -1,9 +1,3 @@
-import { useState, useEffect } from 'react'
-import { getCustomers } from './api/customerApi';
-import { getTrainings } from './api/trainingApi';
-import { CustomerList } from './components/customers/CustomerList';
-import { TrainingList } from './components/trainings/TrainingList';
-import { Calendar } from './components/Calendar';
 import { Link, Outlet } from 'react-router-dom';
 import { Container, CssBaseline, AppBar, Toolbar } from '@mui/material';
 

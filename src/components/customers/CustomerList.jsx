@@ -13,7 +13,7 @@ import AddTrainingForCustomer from '../trainings/AddTrainingForCustomer';
 ModuleRegistry.registerModules([AllCommunityModule]);
 
 // Main component to display and manage the customer list
-export function CustomerList({ }) {
+export function CustomerList() {
     // State to store customer data
     const [customers, setCustomers] = useState([]);
     // State for delete confirmation dialog
@@ -23,7 +23,7 @@ export function CustomerList({ }) {
     const [editCustomer, setEditCustomer] = useState(null);
     const [trainingCustomer, setTrainingCustomer] = useState(null);
     // Column definitions for AG Grid
-    const [columnDefs, setColumnDefs] = useState([
+    const columnDefs = [
         { field: 'firstname' },
         { field: 'lastname' },
         { field: 'streetaddress' },
@@ -70,7 +70,7 @@ export function CustomerList({ }) {
                 </Button>
             )
         }
-    ]);
+    ];
 
     // Fetch customers from API when component mounts
     useEffect(() => {
