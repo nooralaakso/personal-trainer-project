@@ -46,3 +46,16 @@ export async function updateCustomer(customer) {
     const data = await response.json();
     return data;
 };
+
+// Delete a customer from the database
+export async function deleteCustomer(customer) {
+    const response = await fetch(customer._links.self.href, {
+        method: 'DELETE', // HTTP DELETE method for removing a resource
+    });
+    // If the request fails, throw an error with the HTTP status
+    if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    // Return the response object
+    return response;
+};

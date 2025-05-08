@@ -3,7 +3,7 @@ import { AgGridReact } from 'ag-grid-react';
 import { AllCommunityModule, ModuleRegistry } from 'ag-grid-community';
 import { useState, useEffect } from 'react';
 import { Box, Stack, Typography, Button } from '@mui/material';
-import { getCustomers, addCustomer, updateCustomer } from '../../api/customerApi';
+import { getCustomers, addCustomer, updateCustomer, deleteCustomer } from '../../api/customerApi';
 import AddCustomer from './AddCustomer';
 import DeleteCustomerDialog from './DeleteCustomerDialog';
 import EditCustomer from './EditCustomer';
@@ -96,11 +96,18 @@ export function CustomerList() {
 
     // Function to handle delete confirmation
     // This function is called when the user confirms the deletion of a customer
-    const handleDeleteConfirm = (customer) => {
-        setCustomers(customers.filter(c => c !== customer));
-        setDeleteDialogOpen(false);
-        setCustomerToDelete(null);
+    const handleDeleteConfirm = async (customer) => {
+        try {
+            await deleteCustomer(customer); 
+            setCustomers(await getCustomers()); 
+        } catch (error) {
+            console.error("Error deleting customer:", error);
+        } finally {
+            setDeleteDialogOpen(false);
+            setCustomerToDelete(null);
+        }
     };
+    
 
     // Function to handle delete cancellation
     // This function is called when the user cancels the deletion of a customer

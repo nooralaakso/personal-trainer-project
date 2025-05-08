@@ -64,3 +64,15 @@ export async function addTraining(training) {
     const data = await response.json();
     return data;
 }
+// Delete a training from the backend
+export async function deleteTraining(training) {
+    const response = await fetch(training._links.self.href, {
+        method: 'DELETE',
+    });
+ 
+    if (!response.ok) {
+        throw new Error(`Failed to delete training: ${response.status}`);
+    }
+ 
+    return response;
+}
